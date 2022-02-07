@@ -1,0 +1,3 @@
+gsheetsdb==0.1.13.1
+matplotlib==3.5.1
+matplotlib-inline==0.1.3
