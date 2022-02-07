@@ -17,18 +17,39 @@ rows = run_query(f'SELECT * FROM "{sheet_url}"')
 st.markdown("<h1 style='text-align: center'>Google Forms Data Visualization</h1>", unsafe_allow_html=True)
 st.markdown(f"<h3 style='text-align: center'>From Form: {form_title}</h3><br>", unsafe_allow_html=True)
 
+# function to find unique values
+def unique(list):
+    unique_list = []
+    for string in list:
+        if string not in unique_list:
+            unique_list.append(string)
+    return unique_list
+
+
 # gender chart
 st.markdown("<h5>Jenis Kelamin</h5>", unsafe_allow_html=True)
 
-gender = []
-city = []
-for row in rows:
-    gender.append(row.gender)
-    city.append(row.city)
+genders, cities, languages, hello = [], [], [], []
 
-gender_labels = 'Laki-laki', 'Perempuan'
-gender_sizes = [gender.count('Laki-laki'), gender.count('Perempuan')]
+for row in rows:
+    genders.append(row.gender)
+    cities.append(row.city)
+    languages.append(row.language)
+
+genders_labels = unique(genders)
+genders_sizes = [genders.count('Laki-laki'), genders.count('Perempuan')]
 fig1, ax1 = plt.subplots()
-ax1.pie(gender_sizes, labels=gender_labels, autopct='%1.1f%%', shadow=True, startangle=90, radius=3)
+ax1.pie(genders_sizes, labels=genders_labels, autopct='%1.1f%%', shadow=True, startangle=90, radius=3)
 ax1.axis('equal')
 st.pyplot(fig1)
+
+# programming language chart
+
+
+languages_label = unique(languages)
+languages_sizes = []
+for language in languages_label:
+    languages_sizes.append(languages.count(language))
+
+st.write(languages_label)
+st.write(languages_sizes)
