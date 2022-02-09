@@ -24,10 +24,10 @@ st.set_page_config(
     page_icon= image,
     menu_items={
         'About': '''
-                  Google Forms data visualization app.
+                  ### Google Forms data visualization app.
 
                   Visit the repository: https://github.com/tudemaha/forms-streamlit/
-                  Created with :heart: by Tude Maha
+                  Created with :heart: by [Tude Maha](https://instagram.com/tudemaha)
                  '''
     }
 )
