@@ -96,13 +96,14 @@ if city_checkbox:
     ax2.set_facecolor(color='#1A1C24')
     rects = ax2.bar(x, cities_sizes, width)
     ax2.tick_params(colors='w')
+    plt.setp(ax2.spines.values(), color='w')
 
 
     # add text for labels and custom x-axis tick label, etc.
     ax2.set_ylabel('Jumlah', color='w')
     ax2.set_xticks(x, cities_label, rotation='vertical', color='w')
 
-    ax2.bar_label(rects, padding=1, color='w')
+    ax2.bar_label(rects, padding=-14, color='w')
     fig2.tight_layout()
 
     st.pyplot(fig2)
@@ -131,7 +132,7 @@ if language_checkbox:
         horizontalalignment = {-1: "center", 1: "center"}[int(np.sign(x))]
         connectionstyle = "angle,angleA=0,angleB={}".format(ang)
         kw["arrowprops"].update({"connectionstyle": connectionstyle})
-        ax3.annotate(languages_label[i] + (f"\n({languages_sizes[i]})"), xy=(x, y), xytext=(1.45*np.sign(x), 1.45*y),
+        ax3.annotate(languages_label[i] + (f"\n({languages_sizes[i]})"), xy=(x, y), xytext=(1.6*np.sign(x), 1.45*y),
                     horizontalalignment=horizontalalignment, **kw, color='w')
 
     st.pyplot(fig3)
