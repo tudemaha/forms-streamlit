@@ -1,33 +1,42 @@
+#import libraries
 import streamlit as st
 from gsheetsdb import connect
 import matplotlib.pyplot as plt
 import numpy as np
+from PIL import Image
 
+# form title for subtitle
 form_title = 'Ayo Kawan! Ayo Testing2...'
 
+# create connect object
 conn = connect()
 
+# function to run query from Google Sheets (chached for 30 sec)
 @st.cache(ttl=30)
 def run_query(query):
     rows = conn.execute(query, headers=1)
     return rows
 
 # page config
+image = Image.open('favicon.ico')
 st.set_page_config(
     page_title='Google Forms Data Visualization',
-    page_icon=':chart:',
+    page_icon= image,
     menu_items={
         'About': '''
                   Google Forms data visualization app.
 
                   Visit the repository: https://github.com/tudemaha/forms-streamlit/
+                  Created with :heart: by Tude Maha
                  '''
     }
 )
 
+# import sheet url and save query in rows
 sheet_url = st.secrets["public_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
+# title and subtitle
 st.markdown("<h1 style='text-align: center'>Google Forms Data Visualization</h1>", unsafe_allow_html=True)
 st.markdown(f"<h3 style='text-align: center'>From Form: {form_title}</h3><br>", unsafe_allow_html=True)
 
@@ -61,6 +70,7 @@ for row in rows:
     languages.append(row.language)
     total += 1
 
+# default foreground color
 back_color = '#0E1117'
 
 # show total respondens
@@ -69,11 +79,14 @@ if total_respondens == 'Ya':
 
 # gender chart
 if gender_checkbox:
+    # subsection title
     st.markdown("<h5>Jenis Kelamin:</h5>", unsafe_allow_html=True)
 
+    # make needed object for plotting figure 1
     genders_labels = unique(genders)
     genders_sizes = [genders.count('Laki-laki'), genders.count('Perempuan')]
 
+    # plot figure 1
     fig1, ax1 = plt.subplots(figsize=(7, 4), facecolor=back_color)
     ax1.pie(genders_sizes, labels=genders_labels, autopct='%1.1f%%', shadow=True, startangle=90, radius=3, textprops={'color': 'w'})
     ax1.axis('equal')
@@ -81,13 +94,18 @@ if gender_checkbox:
 
 # city chart
 if city_checkbox:
+    # subsection title
     st.markdown("<br><h5>Asal Responden:</h5>", unsafe_allow_html=True)
+
+    # make needed object for plotting figure 2
     cities_label = unique(cities)
     cities_sizes = []
 
+    # count the same city
     for city in cities_label:
         cities_sizes.append(cities.count(city))
 
+    # starting to plot figure 2 with its properties
     x = np.arange(len(cities_label))
     width = 0.35
 
@@ -112,18 +130,22 @@ languages_label = unique(languages)
 
 # programming language chart
 if language_checkbox:
+    # subsection title
     st.markdown("<br><h5>Bahasa Pemrograman Favorit:</h5>", unsafe_allow_html=True)
 
+    # count for the same programming languages
     languages_sizes = []
     for language in languages_label:
         languages_sizes.append(languages.count(language))
 
+    # properties for figure 3
     fig3, ax3 = plt.subplots(figsize=(6, 3), subplot_kw=dict(aspect="equal"), facecolor=back_color)
     wedges, texts = ax3.pie(languages_sizes, wedgeprops=dict(width=0.5), startangle=-40)
 
     bbox_props = dict(boxstyle="square,pad=0.3", fc="#1A1C24", ec="w", lw=0.72, )
     kw = dict(arrowprops=dict(arrowstyle="-", color='w'), bbox=bbox_props, zorder=0, va="center")
 
+    # starting to plot figure 3
     for i, p in enumerate(wedges):
         ang = (p.theta2 - p.theta1)/2. + p.theta1
         y = np.sin(np.deg2rad(ang))
@@ -138,11 +160,14 @@ if language_checkbox:
 
 # hello world example
 if hello_checkbox:
+    # subsection title
     st.markdown("<br><h5>Kreasi Hello World Mereka...</h5>", unsafe_allow_html=True)
 
-
+    # show programming languages choosen by user
     for language in languages_label:
         st.write(language)
+
+        # show hello world examples following the programming languages choosen
         for row in rows:
             if row.language == language:
                 st.code(row.hello, language.lower())
