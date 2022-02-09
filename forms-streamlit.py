@@ -84,7 +84,11 @@ if gender_checkbox:
 
     # make needed object for plotting figure 1
     genders_labels = unique(genders)
-    genders_sizes = [genders.count('Laki-laki'), genders.count('Perempuan')]
+    genders_sizes = []
+
+    # count for the same gender
+    for gender in genders_labels:
+        genders_sizes.append(genders.count(gender))
 
     # plot figure 1
     fig1, ax1 = plt.subplots(figsize=(7, 4), facecolor=back_color)
