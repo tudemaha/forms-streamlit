@@ -15,9 +15,14 @@ This project built using Streamlit -- a web-based front-end for Python. In this 
    - Some [Matplotlib Examples](https://matplotlib.org/stable/gallery/index.html) [Especially in pie, donut, and bar chart]
 
 ## **How to Start?**
-### 1. Create Your Google Forms
+### **1. Create Your Google Forms**
 There are two choices to create the forms:
 - Create the form only with 1 word per each question (e.g. city, pet, etc.) and give a full questions in the description, or
 - Create a normal form's questions (e.g. How old are you?, etc.)
 
-In this project, I prefer to use the second one to make a pretty interface of the form and speed up form creation.
+In this project, I prefer to use the second one to make a pretty interface of the form and speed up form creation. This is my example form:
+
+![Form Creation](/../assets/form_creation.jpg))
+
+### **2. Creating Spreadsheets**
+
