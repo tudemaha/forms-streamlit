@@ -1,5 +1,11 @@
 # **Google Form Data Visualization**
-This project built using Streamlit -- a web-based front-end for Python. In this project, you can display your public Google Forms's responds data, and the best one is you can fully control which data you want to display in your Streamlit app.
+This project built using Streamlit -- a web-based front-end for Python. In this project, you can display your public Google Forms's responds with many types of chart, and the best one is you can fully control which data you want to display in your Streamlit app.
+
+## **My App**
+- Google Forms: https://docs.google.com/forms/d/e/1FAIpQLSdz4jIkzSr6-adQfuZhkh86gHMyk72wUDWSVJiR_sRsZ_53BA/viewform
+- Visualization: https://share.streamlit.io/tudemaha/forms-streamlit/main/forms-streamlit.py
+
+Feel free to fill the anonymous form and visit the visualization website.
 
 ## **Requirements**
 1. Programming Language
@@ -20,7 +26,7 @@ This project built using Streamlit -- a web-based front-end for Python. In this 
 ## **How to Start?**
 ### **1. Create Your Google Forms**
 Create a Google Forms in a folder. There are two options to create the form:
-- Create the form only with 1 word per each question (e.g. city, age, etc.) and give a full questions in the description, or
+- Create the form with only one word per question (e.g. city, age, etc.) and give a full questions in the description, or
 - Create a normal form's questions (e.g. How old are you?, etc.)
 
 In this project, I prefer to use the second one to make a pretty interface of the form and speed up form creation. This is my example form:
