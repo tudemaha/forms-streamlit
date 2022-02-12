@@ -11,8 +11,8 @@ This project built using Streamlit -- a web-based front-end for Python. In this 
    - [NumPy](https://numpy.org) [**Optional.** In my case, just `fig3` used this library]
    - [Pillow](https://pillow.readthedocs.io) [**Optional.** I used this just for import the website's favicon]
 3. A little practice about
-   - Some [Streamlit API](https://docs.streamlit.io/library/api-reference)
-   - Some [Matplotlib Examples](https://matplotlib.org/stable/gallery/index.html) [Especially in pie, donut, and bar chart]
+   - Some [Streamlit API](https://docs.streamlit.io/library/api-reference) [take a look on my [source code](/forms-streamlit.py) for the APIs I used]
+   - Some [Matplotlib Examples](https://matplotlib.org/stable/gallery/index.html) [In this project: pie, donut, and bar chart]
 4. Google's services
    - [Google Forms](https://forms.google.com)
    - [Google Sheets](https://sheets.google.com)
@@ -56,3 +56,17 @@ There are also two options to create the spreadsheets following the previous ste
 ![Change Availability](/../assets/change_availability.jpg)
 
 ### **3. Creating Streamlit Front-End**
+To create the front-end of this app, take a little research in:
+- Streamlit's official docs about [Connect Streamlit to a public Google Sheet](https://docs.streamlit.io/knowledge-base/tutorials/databases/public-gsheet).
+- "A little practice about" that I mentioned on [Requirements](#requirements) section above.
+- [My source code](/forms-streamlit.py)
+
+### **4. Instantly Deploy Your App**
+It's a simple way to deploy your app using Streamlit's free deployment service (https://share.streamlit.io). Just sign up using your email or connect  your GitHub account to Streamlit and paste your GitHub repo link of your app.
+
+> Remember to put your `secrets` while deploying your app!
+
+Read Streamlit's official docs about [Deploy an app](https://docs.streamlit.io/streamlit-cloud/get-started/deploy-an-app) for more information.
+
+## **At the End...**
+Congratulation on your new Streamlit app :tada:
