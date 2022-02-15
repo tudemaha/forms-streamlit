@@ -103,6 +103,7 @@ if city_checkbox:
 
     # make needed object for plotting figure 2
     cities_label = unique(cities)
+    cities_label.sort()
     cities_sizes = []
 
     # count the same city
@@ -131,6 +132,9 @@ if city_checkbox:
 
 # make languages_label public for language chart and hello world example
 languages_label = unique(languages)
+
+# move 'Lainnya' to the end
+languages_label.append(languages_label.pop(languages_label.index("Lainnya")))
 
 # programming language chart
 if language_checkbox:
